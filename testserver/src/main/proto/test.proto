@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpc";
+option java_outer_classname = "PushServiceProto";
+
+service PushService {
+  // 서버 스트리밍 메서드 정의
+  rpc SubscribeToUpdates (SubscribeRequest) returns (stream UpdateMessage);
+}
+
+message SubscribeRequest {
+  string client_id = 1;
+}
+
+message UpdateMessage {
+  string message = 1;
+}

@@ -1,7 +1,17 @@
+buildscript {
+	ext {
+		protobufVersion = '4.27.2'
+		protobufPluginVersion = '0.9.4'
+		grpcVersion = '1.65.1'
+	}
+}
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.4'
 	id 'io.spring.dependency-management' version '1.1.6'
+
+	id 'com.google.protobuf' version "${protobufPluginVersion}"
 }
 
 group = 'com.example'
@@ -29,6 +39,35 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// grpc dependency
+	implementation "com.google.protobuf:protobuf-java-util:${protobufVersion}"
+	implementation "com.google.protobuf:protobuf-java:${protobufVersion}"
+
+	implementation 'net.devh:grpc-spring-boot-starter:3.1.0.RELEASE'
+	implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
+	implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+	implementation "io.grpc:grpc-stub:${grpcVersion}"
+	compileOnly 'org.apache.tomcat:annotations-api:6.0.53'
+}
+
+protobuf {
+	protoc {
+		artifact = "com.google.protobuf:protoc:${protobufVersion}"
+	}
+	clean {
+		delete generatedFilesBaseDir
+	}
+	plugins {
+		grpc {
+			artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+		}
+	}
+	generateProtoTasks {
+		all()*.plugins {
+			grpc {}
+		}
+	}
 }
 
 tasks.named('test') {

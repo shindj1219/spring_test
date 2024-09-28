@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcClient";
+
+service PushService {
+  rpc SubscribeToUpdates (SubscribeRequest) returns (stream UpdateMessage);
+}
+
+message SubscribeRequest {
+  string client_id = 1;
+}
+
+message UpdateMessage {
+  string message = 1;
+}
