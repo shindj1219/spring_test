@@ -38,7 +38,7 @@ public class PushServiceImpl extends PushServiceGrpc.PushServiceImplBase{
             } catch (Exception e) {
                 stopSchedulerForClient(clientId);
             }
-        }, 5000);
+        }, 3000);
 
         clientSchedules.put(clientId, scheduledTask);
     }
