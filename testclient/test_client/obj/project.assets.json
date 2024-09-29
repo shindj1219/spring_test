@@ -305,11 +305,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dongjoo/Laboratory/spring_test/test_client/test_client/test_client.csproj",
+      "projectUniqueName": "/Users/dongjoo/Laboratory/spring_test/testclient/test_client/test_client.csproj",
       "projectName": "test_client",
-      "projectPath": "/Users/dongjoo/Laboratory/spring_test/test_client/test_client/test_client.csproj",
+      "projectPath": "/Users/dongjoo/Laboratory/spring_test/testclient/test_client/test_client.csproj",
       "packagesPath": "/Users/dongjoo/.nuget/packages/",
-      "outputPath": "/Users/dongjoo/Laboratory/spring_test/test_client/test_client/obj/",
+      "outputPath": "/Users/dongjoo/Laboratory/spring_test/testclient/test_client/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/dongjoo/.nuget/NuGet/NuGet.Config"
