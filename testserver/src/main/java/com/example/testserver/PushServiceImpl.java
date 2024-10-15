@@ -31,6 +31,7 @@ public class PushServiceImpl extends PushServiceGrpc.PushServiceImplBase{
         ScheduledFuture<?> scheduledTask = taskScheduler.scheduleAtFixedRate(() -> {
             UpdateMessage message = UpdateMessage.newBuilder()
                     .setMessage("서버에서 " + clientId + "에게 보낸 메시지: " + System.currentTimeMillis())
+                    .setClipboard("on")
                     .build();
             try {
                 responseObserver.onNext(message);

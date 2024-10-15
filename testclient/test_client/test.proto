@@ -12,4 +12,8 @@ message SubscribeRequest {
 
 message UpdateMessage {
   string message = 1;
+  oneof policy {
+    string clipboard = 2;
+    string usb_redirection = 3;
+  }
 }

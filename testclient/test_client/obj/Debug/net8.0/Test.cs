@@ -25,15 +25,16 @@ namespace GrpcClient {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cgp0ZXN0LnByb3RvIiUKEFN1YnNjcmliZVJlcXVlc3QSEQoJY2xpZW50X2lk",
-            "GAEgASgJIiAKDVVwZGF0ZU1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoCTJICgtQ",
-            "dXNoU2VydmljZRI5ChJTdWJzY3JpYmVUb1VwZGF0ZXMSES5TdWJzY3JpYmVS",
-            "ZXF1ZXN0Gg4uVXBkYXRlTWVzc2FnZTABQg2qAgpHcnBjQ2xpZW50YgZwcm90",
-            "bzM="));
+            "GAEgASgJIloKDVVwZGF0ZU1lc3NhZ2USDwoHbWVzc2FnZRgBIAEoCRITCglj",
+            "bGlwYm9hcmQYAiABKAlIABIZCg91c2JfcmVkaXJlY3Rpb24YAyABKAlIAEII",
+            "CgZwb2xpY3kySAoLUHVzaFNlcnZpY2USOQoSU3Vic2NyaWJlVG9VcGRhdGVz",
+            "EhEuU3Vic2NyaWJlUmVxdWVzdBoOLlVwZGF0ZU1lc3NhZ2UwAUINqgIKR3Jw",
+            "Y0NsaWVudGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.SubscribeRequest), global::GrpcClient.SubscribeRequest.Parser, new[]{ "ClientId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.UpdateMessage), global::GrpcClient.UpdateMessage.Parser, new[]{ "Message" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcClient.UpdateMessage), global::GrpcClient.UpdateMessage.Parser, new[]{ "Message", "Clipboard", "UsbRedirection" }, new[]{ "Policy" }, null, null, null)
           }));
     }
     #endregion
@@ -274,6 +275,15 @@ namespace GrpcClient {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public UpdateMessage(UpdateMessage other) : this() {
       message_ = other.message_;
+      switch (other.PolicyCase) {
+        case PolicyOneofCase.Clipboard:
+          Clipboard = other.Clipboard;
+          break;
+        case PolicyOneofCase.UsbRedirection:
+          UsbRedirection = other.UsbRedirection;
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -295,6 +305,79 @@ namespace GrpcClient {
       }
     }
 
+    /// <summary>Field number for the "clipboard" field.</summary>
+    public const int ClipboardFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Clipboard {
+      get { return HasClipboard ? (string) policy_ : ""; }
+      set {
+        policy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        policyCase_ = PolicyOneofCase.Clipboard;
+      }
+    }
+    /// <summary>Gets whether the "clipboard" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasClipboard {
+      get { return policyCase_ == PolicyOneofCase.Clipboard; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "clipboard" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearClipboard() {
+      if (HasClipboard) {
+        ClearPolicy();
+      }
+    }
+
+    /// <summary>Field number for the "usb_redirection" field.</summary>
+    public const int UsbRedirectionFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string UsbRedirection {
+      get { return HasUsbRedirection ? (string) policy_ : ""; }
+      set {
+        policy_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        policyCase_ = PolicyOneofCase.UsbRedirection;
+      }
+    }
+    /// <summary>Gets whether the "usb_redirection" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasUsbRedirection {
+      get { return policyCase_ == PolicyOneofCase.UsbRedirection; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "usb_redirection" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearUsbRedirection() {
+      if (HasUsbRedirection) {
+        ClearPolicy();
+      }
+    }
+
+    private object policy_;
+    /// <summary>Enum of possible cases for the "policy" oneof.</summary>
+    public enum PolicyOneofCase {
+      None = 0,
+      Clipboard = 2,
+      UsbRedirection = 3,
+    }
+    private PolicyOneofCase policyCase_ = PolicyOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PolicyOneofCase PolicyCase {
+      get { return policyCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPolicy() {
+      policyCase_ = PolicyOneofCase.None;
+      policy_ = null;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -311,6 +394,9 @@ namespace GrpcClient {
         return true;
       }
       if (Message != other.Message) return false;
+      if (Clipboard != other.Clipboard) return false;
+      if (UsbRedirection != other.UsbRedirection) return false;
+      if (PolicyCase != other.PolicyCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -319,6 +405,9 @@ namespace GrpcClient {
     public override int GetHashCode() {
       int hash = 1;
       if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (HasClipboard) hash ^= Clipboard.GetHashCode();
+      if (HasUsbRedirection) hash ^= UsbRedirection.GetHashCode();
+      hash ^= (int) policyCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -341,6 +430,14 @@ namespace GrpcClient {
         output.WriteRawTag(10);
         output.WriteString(Message);
       }
+      if (HasClipboard) {
+        output.WriteRawTag(18);
+        output.WriteString(Clipboard);
+      }
+      if (HasUsbRedirection) {
+        output.WriteRawTag(26);
+        output.WriteString(UsbRedirection);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -355,6 +452,14 @@ namespace GrpcClient {
         output.WriteRawTag(10);
         output.WriteString(Message);
       }
+      if (HasClipboard) {
+        output.WriteRawTag(18);
+        output.WriteString(Clipboard);
+      }
+      if (HasUsbRedirection) {
+        output.WriteRawTag(26);
+        output.WriteString(UsbRedirection);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -367,6 +472,12 @@ namespace GrpcClient {
       int size = 0;
       if (Message.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (HasClipboard) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Clipboard);
+      }
+      if (HasUsbRedirection) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(UsbRedirection);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -383,6 +494,15 @@ namespace GrpcClient {
       if (other.Message.Length != 0) {
         Message = other.Message;
       }
+      switch (other.PolicyCase) {
+        case PolicyOneofCase.Clipboard:
+          Clipboard = other.Clipboard;
+          break;
+        case PolicyOneofCase.UsbRedirection:
+          UsbRedirection = other.UsbRedirection;
+          break;
+      }
+
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -406,6 +526,14 @@ namespace GrpcClient {
             Message = input.ReadString();
             break;
           }
+          case 18: {
+            Clipboard = input.ReadString();
+            break;
+          }
+          case 26: {
+            UsbRedirection = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -427,6 +555,14 @@ namespace GrpcClient {
             break;
           case 10: {
             Message = input.ReadString();
+            break;
+          }
+          case 18: {
+            Clipboard = input.ReadString();
+            break;
+          }
+          case 26: {
+            UsbRedirection = input.ReadString();
             break;
           }
         }

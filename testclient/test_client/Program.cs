@@ -31,6 +31,18 @@ class Program {
                 await foreach (var message in streamingCall.ResponseStream.ReadAllAsync())
                 {
                     Console.WriteLine($"서버로부터 받은 메시지: {message.Message}");
+                    switch (message.PolicyCase)
+                    {
+                        case UpdateMessage.PolicyOneofCase.Clipboard:
+                            Console.WriteLine($"클립보드 정책 업데이트: {message.Clipboard}");
+                            break;
+                        case UpdateMessage.PolicyOneofCase.UsbRedirection:
+                            Console.WriteLine($"클립보드 정책 업데이트: {message.UsbRedirection}");
+                            break;
+                        default:
+                            Console.WriteLine("No message content received.");
+                            break;
+                    }
                 }
             }
             catch (RpcException ex)
