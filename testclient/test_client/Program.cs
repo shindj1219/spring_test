@@ -8,7 +8,13 @@ class Program {
     static async Task Main(string[] args)
     {
         // gRPC 채널을 통해 서버와 연결 설정
-        var channel = GrpcChannel.ForAddress("http://localhost:50051");
+        var channel = GrpcChannel.ForAddress("https://localhost:50051", new GrpcChannelOptions
+            {
+                HttpHandler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                }
+            });
 
         // gRPC에서 생성된 PushServiceClient 객체 생성
         var client = new PushService.PushServiceClient(channel);

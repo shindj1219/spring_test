@@ -6,3 +6,7 @@ server:
 grpc:
   server:
     port: 50051
+    security:
+      enabled: true
+      certificate-chain: classpath:server.crt
+      private-key: classpath:server.key
