@@ -1,2 +1,2 @@
-obj/Debug/net8.0/Test.cs \
-obj/Debug/net8.0/TestGrpc.cs: test.proto
+obj\Debug\net8.0/Test.cs \
+obj\Debug\net8.0/TestGrpc.cs: test.proto

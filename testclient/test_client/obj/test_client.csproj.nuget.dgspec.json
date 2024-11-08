@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dongjoo/Laboratory/spring_test/testclient/test_client/test_client.csproj": {}
+    "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\test_client.csproj": {}
   },
   "projects": {
-    "/Users/dongjoo/Laboratory/spring_test/testclient/test_client/test_client.csproj": {
+    "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\test_client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dongjoo/Laboratory/spring_test/testclient/test_client/test_client.csproj",
+        "projectUniqueName": "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\test_client.csproj",
         "projectName": "test_client",
-        "projectPath": "/Users/dongjoo/Laboratory/spring_test/testclient/test_client/test_client.csproj",
-        "packagesPath": "/Users/dongjoo/.nuget/packages/",
-        "outputPath": "/Users/dongjoo/Laboratory/spring_test/testclient/test_client/obj/",
+        "projectPath": "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\test_client.csproj",
+        "packagesPath": "C:\\Users\\tmax\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/dongjoo/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\tmax\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -74,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/dongjoo/.dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

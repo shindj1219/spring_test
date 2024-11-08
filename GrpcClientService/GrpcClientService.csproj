@@ -5,6 +5,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<OutputType>exe</OutputType>
+	<PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	<PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,10 +19,16 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Management.Automation" Version="7.4.6" />
   </ItemGroup>
 
   <ItemGroup>
 	  <Protobuf Include="Protos\test.proto" GrpcServices="Client" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(SolutionDir)config.json&quot; &quot;$(TargetDir)config.json&quot;" />
+  </Target>
 
 </Project>
