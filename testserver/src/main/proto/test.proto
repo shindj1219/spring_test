@@ -1,22 +1,43 @@
 syntax = "proto3";
 
-option java_multiple_files = true;
-option java_package = "com.example.grpc";
-option java_outer_classname = "PushServiceProto";
+option java_package = "com.example.testserver";
+option java_outer_classname = "AgentServiceProto";
 
-service PushService {
-  // 서버 스트리밍 메서드 정의
-  rpc SubscribeToUpdates (SubscribeRequest) returns (stream UpdateMessage);
+service AgentService {
+  rpc RegisterAgent (AgentInfoMessage) returns (AgentInformationMessage);
+  rpc UpdatePolicy (AgentInfoMessage) returns (stream UpdatePolicyMessage);
+  rpc CompleteJoining (AdJoinCompleteMessage) returns (ResultMessage);
 }
 
-message SubscribeRequest {
-  string client_id = 1;
+message AgentInfoMessage {
+  string vdId = 1;
 }
 
-message UpdateMessage {
+message AgentInformationMessage {
+  string agentKey = 1;
+  string adDomain = 2;
+  string adServerIp = 3;
+  string adUserId = 4;
+  string adUserPassword = 5;
+  string adOuName = 6;
+}
+
+message AdJoinCompleteMessage {
+  string agentKey = 1;
+  string guid = 2;
+  string result = 3;
+}
+
+message ResultMessage {
+  string result = 1;
+}
+
+message UpdatePolicyMessage {
   string message = 1;
   oneof policy {
     string clipboard = 2;
     string usb_redirection = 3;
   }
 }
+
+message Empty {}
