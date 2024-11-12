@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\test_client.csproj": {}
+    "C:\\Users\\tmax\\Source\\Repos\\spring_test\\testclient\\test_client\\test_client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\test_client.csproj": {
+    "C:\\Users\\tmax\\Source\\Repos\\spring_test\\testclient\\test_client\\test_client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\test_client.csproj",
+        "projectUniqueName": "C:\\Users\\tmax\\Source\\Repos\\spring_test\\testclient\\test_client\\test_client.csproj",
         "projectName": "test_client",
-        "projectPath": "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\test_client.csproj",
+        "projectPath": "C:\\Users\\tmax\\Source\\Repos\\spring_test\\testclient\\test_client\\test_client.csproj",
         "packagesPath": "C:\\Users\\tmax\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\tmax\\source\\repos\\spring_test\\testclient\\test_client\\obj\\",
         "projectStyle": "PackageReference",
@@ -62,6 +62,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.67.0-pre1, )"
+            },
+            "Microsoft.PowerShell.SDK": {
+              "target": "Package",
+              "version": "[7.4.6, )"
+            },
+            "System.Management.Automation": {
+              "target": "Package",
+              "version": "[7.4.6, )"
+            },
+            "System.Net.NetworkInformation": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

@@ -14,10 +14,17 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.6" />
+      <PackageReference Include="System.Management.Automation" Version="7.4.6" />
+      <PackageReference Include="System.Net.NetworkInformation" Version="4.3.0" />
     </ItemGroup>
 
     <ItemGroup>
         <Protobuf Include="test.proto" GrpcServices="Client" />
     </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="copy &quot;$(ProjectDir)config.json&quot; &quot;$(TargetDir)config.json&quot;" />
+    </Target>
 
 </Project>

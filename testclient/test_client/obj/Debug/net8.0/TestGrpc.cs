@@ -8,9 +8,9 @@
 using grpc = global::Grpc.Core;
 
 namespace GrpcClient {
-  public static partial class PushService
+  public static partial class AgentService
   {
-    static readonly string __ServiceName = "PushService";
+    static readonly string __ServiceName = "GrpcClient.AgentService";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -46,17 +46,39 @@ namespace GrpcClient {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.SubscribeRequest> __Marshaller_SubscribeRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.SubscribeRequest.Parser));
+    static readonly grpc::Marshaller<global::GrpcClient.AgentInfoMessage> __Marshaller_GrpcClient_AgentInfoMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.AgentInfoMessage.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::GrpcClient.UpdateMessage> __Marshaller_UpdateMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.UpdateMessage.Parser));
+    static readonly grpc::Marshaller<global::GrpcClient.AgentInformationMessage> __Marshaller_GrpcClient_AgentInformationMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.AgentInformationMessage.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClient.UpdatePolicyMessage> __Marshaller_GrpcClient_UpdatePolicyMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.UpdatePolicyMessage.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClient.AdJoinCompleteMessage> __Marshaller_GrpcClient_AdJoinCompleteMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.AdJoinCompleteMessage.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::GrpcClient.ResultMessage> __Marshaller_GrpcClient_ResultMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::GrpcClient.ResultMessage.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::GrpcClient.SubscribeRequest, global::GrpcClient.UpdateMessage> __Method_SubscribeToUpdates = new grpc::Method<global::GrpcClient.SubscribeRequest, global::GrpcClient.UpdateMessage>(
+    static readonly grpc::Method<global::GrpcClient.AgentInfoMessage, global::GrpcClient.AgentInformationMessage> __Method_RegisterAgent = new grpc::Method<global::GrpcClient.AgentInfoMessage, global::GrpcClient.AgentInformationMessage>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "RegisterAgent",
+        __Marshaller_GrpcClient_AgentInfoMessage,
+        __Marshaller_GrpcClient_AgentInformationMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcClient.AgentInfoMessage, global::GrpcClient.UpdatePolicyMessage> __Method_UpdatePolicy = new grpc::Method<global::GrpcClient.AgentInfoMessage, global::GrpcClient.UpdatePolicyMessage>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
-        "SubscribeToUpdates",
-        __Marshaller_SubscribeRequest,
-        __Marshaller_UpdateMessage);
+        "UpdatePolicy",
+        __Marshaller_GrpcClient_AgentInfoMessage,
+        __Marshaller_GrpcClient_UpdatePolicyMessage);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::GrpcClient.AdJoinCompleteMessage, global::GrpcClient.ResultMessage> __Method_CompleteJoining = new grpc::Method<global::GrpcClient.AdJoinCompleteMessage, global::GrpcClient.ResultMessage>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CompleteJoining",
+        __Marshaller_GrpcClient_AdJoinCompleteMessage,
+        __Marshaller_GrpcClient_ResultMessage);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -64,48 +86,88 @@ namespace GrpcClient {
       get { return global::GrpcClient.TestReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Client for PushService</summary>
-    public partial class PushServiceClient : grpc::ClientBase<PushServiceClient>
+    /// <summary>Client for AgentService</summary>
+    public partial class AgentServiceClient : grpc::ClientBase<AgentServiceClient>
     {
-      /// <summary>Creates a new client for PushService</summary>
+      /// <summary>Creates a new client for AgentService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public PushServiceClient(grpc::ChannelBase channel) : base(channel)
+      public AgentServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for PushService that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for AgentService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public PushServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public AgentServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected PushServiceClient() : base()
+      protected AgentServiceClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected PushServiceClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected AgentServiceClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncServerStreamingCall<global::GrpcClient.UpdateMessage> SubscribeToUpdates(global::GrpcClient.SubscribeRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::GrpcClient.AgentInformationMessage RegisterAgent(global::GrpcClient.AgentInfoMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SubscribeToUpdates(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return RegisterAgent(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncServerStreamingCall<global::GrpcClient.UpdateMessage> SubscribeToUpdates(global::GrpcClient.SubscribeRequest request, grpc::CallOptions options)
+      public virtual global::GrpcClient.AgentInformationMessage RegisterAgent(global::GrpcClient.AgentInfoMessage request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeToUpdates, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_RegisterAgent, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClient.AgentInformationMessage> RegisterAgentAsync(global::GrpcClient.AgentInfoMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return RegisterAgentAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClient.AgentInformationMessage> RegisterAgentAsync(global::GrpcClient.AgentInfoMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_RegisterAgent, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::GrpcClient.UpdatePolicyMessage> UpdatePolicy(global::GrpcClient.AgentInfoMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdatePolicy(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncServerStreamingCall<global::GrpcClient.UpdatePolicyMessage> UpdatePolicy(global::GrpcClient.AgentInfoMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_UpdatePolicy, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClient.ResultMessage CompleteJoining(global::GrpcClient.AdJoinCompleteMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CompleteJoining(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::GrpcClient.ResultMessage CompleteJoining(global::GrpcClient.AdJoinCompleteMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_CompleteJoining, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClient.ResultMessage> CompleteJoiningAsync(global::GrpcClient.AdJoinCompleteMessage request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return CompleteJoiningAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::GrpcClient.ResultMessage> CompleteJoiningAsync(global::GrpcClient.AdJoinCompleteMessage request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_CompleteJoining, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected override PushServiceClient NewInstance(ClientBaseConfiguration configuration)
+      protected override AgentServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return new PushServiceClient(configuration);
+        return new AgentServiceClient(configuration);
       }
     }
 
